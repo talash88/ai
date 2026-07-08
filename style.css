@@ -63,6 +63,20 @@ body {
   align-items: center;
 }
 
+.header .logo-wrapper .logo {
+ height: 55px;
+ width: 56px;
+ display: flex;
+ color: #fff;
+ font-size: 1.35rem;
+ flex-shrink: 0;
+ border-radius: 15px;
+ align-items: center;
+ justify-content: center;
+ background: var(--color-gradient);
+
+
+}
 
 
 
