@@ -32,3 +32,15 @@ A creative AI image generation interface that allows users to create visuals by 
 - Add image preview and download feature.
 - Implement dark/light mode.
 - Add generated image history.
+
+
+User button pe click
+        │
+        ▼
+toggleTheme() function chala
+        │
+        ▼
+body me dark-theme class add/remove hui
+        │
+        ▼
+CSS automatically change ho gayi
