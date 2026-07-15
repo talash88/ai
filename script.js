@@ -1,7 +1,11 @@
 
 const themeToggle = document.querySelector(".theme-toggle");
+const promptForm = document.querySelector(".prompt-form");
 const promptInput = document.querySelector(".prompt-input");
 const promptBtn = document.querySelector(".prompt-btn");
+const modelSelect = document.querySelector("#model-select");
+const countSelect = document.querySelector("#count-select");
+const ratioSelect = document.querySelector("#ratio-select");
 
 // set theme based on saved preference or system default
 
@@ -24,7 +28,7 @@ const examplePrompts = [
 ];
 (() => {
    const savedTheme = localStorage.getItem("theme");
-   const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark) ").matches;
+   const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
    const isDarkTheme = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
    document.body.classList.toggle("dark-theme", isDarkTheme);
@@ -37,12 +41,32 @@ const toggleTheme = () => {
    localStorage.setItem("theme",isDarkTheme ? "dark" : "light");
     themeToggle.querySelector("i").className = isDarkTheme ? "fa-solid fa-sun" : "fa-solid fa-moon";
 };
+      
+    // const createImageCards = (selectedModel, imageCount, aspectRatio, promptText);
+    const createImageCards = (selectedModel, imageCount, aspectRatio, promptText) => {
+
+};
+
+const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+
+    const selectedModel = modelSelect.value;
+    const imageCount = parseInt(countSelect.value) || 1;
+    const aspectRatio = ratioSelect.value || "1/1";
+    const promptText = promptInput.value.trim();
+
+    createImageCards(selectedModel, imageCount, aspectRatio, promptText);
+};
+
 
 promptBtn.addEventListener("click", () => {
     const prompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
     promptInput.value = prompt;
     promptInput.focus();
-})
-
+});
+promptForm.addEventListener("submit", handleFormSubmit);
 themeToggle.addEventListener("click",toggleTheme); 
+
+
 
