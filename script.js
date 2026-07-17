@@ -6,6 +6,7 @@ const promptBtn = document.querySelector(".prompt-btn");
 const modelSelect = document.querySelector("#model-select");
 const countSelect = document.querySelector("#count-select");
 const ratioSelect = document.querySelector("#ratio-select");
+const gridGallery = document.querySelector(".gallery-grid");
 
 // set theme based on saved preference or system default
 
@@ -45,7 +46,29 @@ const toggleTheme = () => {
     // const createImageCards = (selectedModel, imageCount, aspectRatio, promptText);
     const createImageCards = (selectedModel, imageCount, aspectRatio, promptText) => {
 
+    gridGallery.innerHTML = "";
+
+    for (let i = 0; i < imageCount; i++) {
+
+        gridGallery.innerHTML += `
+        <div class="img-card loading"
+             id="img-card-${i}"
+             style="aspect-ratio:${aspectRatio};">
+
+            <div class="status-container">
+                <div class="spinner"></div>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p class="status-text">Generating...</p>
+            </div>
+
+            <img src="image.png" class="result-img">
+        </div>
+        `;
+    }
 };
+     
+          
+
 
 const handleFormSubmit = (e) => {
     e.preventDefault();
